@@ -1,2 +1,2 @@
-# Test bed: React Native
+# Testbed: React Native
 
