@@ -105,3 +105,6 @@ dist
 
 # Intellij config files
 .idea
+
+# yarn
+yarn.lock
