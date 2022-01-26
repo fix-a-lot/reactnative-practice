@@ -158,6 +158,8 @@ Failed to construct transformer:  Error: error:0308010C:digital envelope routine
 
 [OpenSSL 관련 버전이 안맞아서](https://stackoverflow.com/questions/69665222/node-js-17-0-1-gatsby-error-digital-envelope-routinesunsupported-err-os) 그런거니 `--openssl-legacy-provider`를 추가해 강제로 구 버전을 보도록 해야 한다.
 
+아니면 Node.js 버전을 16대로 내리던지...
+
 `package.json`을 이렇게 수정:
 
 ```bash
