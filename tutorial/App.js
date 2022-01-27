@@ -7,17 +7,58 @@
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, _Text} from 'react-native';
 import Header from './src/header';
 
 class App extends Component {
+
+  state = {
+    sampleText: 'Hello World!',
+    sampleBoolean: false,
+    sampleNum: 1
+  }
+
+  inputText = () => {
+    return this.state.sampleBoolean 
+        ? <Text>sampleBoolean is true</Text>
+        : <Text>sampleBoolean is false</Text>
+  };
+
+  changeState = () => {
+    if (!this.state.sampleBoolean) {
+      this.setState({
+        sampleText: 'Text changed!',
+        sampleBoolean: true
+      });
+    } else {
+      this.setState({
+        sampleText: 'Hello world!',
+        sampleBoolean: false
+      });
+    }
+  };
+
+  onAdd = () => {
+    console.log('Hello debugger!')
+    debugger;
+    this.setState(prevState => {
+      // sampleNum: sampleNum + 1
+      return {
+        sampleNum: prevState.sampleNum + 1
+      }
+    });
+  };
+
   render() {
     return (
       <View style={styles.mainView}>
         <Header/>
-        {/* <View style={styles.subView}>
-          <Text style={styles.mainText}>hello world</Text>
-        </View> */}
+        {/* <Text onPress={this.changeState}>
+          {this.state.sampleText} */}
+        {/* <Text onPress={this.onAdd}> */}
+        <Text onPress={this.onAdd}>
+          {this.state.sampleNum}
+        </Text>
       </View>
     );
   }
