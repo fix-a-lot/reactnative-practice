@@ -11,54 +11,53 @@ import {View, Text, StyleSheet, _Text} from 'react-native';
 import Header from './src/header';
 
 class App extends Component {
-
   state = {
     sampleText: 'Hello World!',
     sampleBoolean: false,
-    sampleNum: 1
-  }
+    sampleNum: 1,
+  };
 
   inputText = () => {
-    return this.state.sampleBoolean 
-        ? <Text>sampleBoolean is true</Text>
-        : <Text>sampleBoolean is false</Text>
+    return this.state.sampleBoolean ? (
+      <Text>sampleBoolean is true</Text>
+    ) : (
+      <Text>sampleBoolean is false</Text>
+    );
   };
 
   changeState = () => {
     if (!this.state.sampleBoolean) {
       this.setState({
         sampleText: 'Text changed!',
-        sampleBoolean: true
+        sampleBoolean: true,
       });
     } else {
       this.setState({
         sampleText: 'Hello world!',
-        sampleBoolean: false
+        sampleBoolean: false,
       });
     }
   };
 
   onAdd = () => {
-    console.log('Hello debugger!')
+    console.log('Hello debugger!');
     debugger;
     this.setState(prevState => {
       // sampleNum: sampleNum + 1
       return {
-        sampleNum: prevState.sampleNum + 1
-      }
+        sampleNum: prevState.sampleNum + 1,
+      };
     });
   };
 
   render() {
     return (
       <View style={styles.mainView}>
-        <Header/>
+        <Header />
         {/* <Text onPress={this.changeState}>
           {this.state.sampleText} */}
         {/* <Text onPress={this.onAdd}> */}
-        <Text onPress={this.onAdd}>
-          {this.state.sampleNum}
-        </Text>
+        <Text onPress={this.onAdd}>{this.state.sampleNum}</Text>
       </View>
     );
   }
@@ -70,11 +69,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingTop: 50,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   subView: {
     backgroundColor: 'yellow',
-    marginBottom: 10
+    marginBottom: 10,
   },
   anthoerSubView: {
     flex: 2,
@@ -82,13 +81,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   mainText: {
     fontSize: 20,
     fontWeight: 'normal',
     color: 'red',
-    padding: 20
+    padding: 20,
   },
 });
 
