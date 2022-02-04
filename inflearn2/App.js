@@ -13,13 +13,14 @@ import Header from './src/header';
 class App extends Component {
 
   state = {
-    appName: 'My first app'
+    appName: 'My first app2'
   }
 
   render() {
     return (
       <View style={styles.mainView}>
         <Header name={this.state.appName}/>
+        {/* <Text style={styles.mainText} onPress={() => alert('text touch event')} >Hello World!</Text> */}
       </View>
     );
   }

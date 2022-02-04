@@ -7,12 +7,20 @@
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 
 const Header = (props) => (
-  <View style={styles.header}>
-    <Text>{props.name}</Text>
-  </View>
+  <TouchableOpacity
+      style={styles.header}
+      onPressIn={() => console.log('onPress보다 먼저')}
+      onPress={() => console.log('press')}
+      onLongPress={() => console.log('long press')}
+      onPressOut={() => console.log('press out')}
+  >
+    <View>
+      <Text>{props.name}</Text>
+    </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
