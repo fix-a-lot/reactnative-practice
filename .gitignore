@@ -41,6 +41,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Dependency lock files
+package-lock.json
+yarn.lock
+
 # TypeScript v1 declaration files
 typings/
 
@@ -105,9 +109,6 @@ dist
 
 # Intellij config files
 .idea
-
-# yarn
-yarn.lock
 
 # Ruby
 Gemfile.lock
