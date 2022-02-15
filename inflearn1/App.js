@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, _Text} from 'react-native';
 import Header from './src/header';
-
+import PropsChild from './src/propsChild';
 class App extends Component {
   state = {
     sampleText: 'Hello World!',
@@ -41,11 +41,11 @@ class App extends Component {
 
   onAdd = () => {
     console.log('Hello debugger!');
-    debugger;
-    this.setState(prevState => {
+    // debugger;
+    this.setState(state => {
       // sampleNum: sampleNum + 1
       return {
-        sampleNum: prevState.sampleNum + 1,
+        sampleNum: state.sampleNum + 1,
       };
     });
   };
@@ -54,10 +54,12 @@ class App extends Component {
     return (
       <View style={styles.mainView}>
         <Header />
-        {/* <Text onPress={this.changeState}>
-          {this.state.sampleText} */}
-        {/* <Text onPress={this.onAdd}> */}
-        <Text onPress={this.onAdd}>{this.state.sampleNum}</Text>
+        <View style={styles.subView}>
+          <Text style={[{fontSize: 20}, styles.mainText]} onPress={this.onAdd}>만지면 ++{this.state.sampleNum}</Text>
+        </View>
+        <View style={styles.anthoerSubView}>
+          <PropsChild cText={this.state.sampleText} cState={this.changeState} />
+        </View>
       </View>
     );
   }
@@ -72,23 +74,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   subView: {
+    flex: 1,
     backgroundColor: 'yellow',
-    marginBottom: 10,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   anthoerSubView: {
-    flex: 2,
-    backgroundColor: 'yellow',
-    marginBottom: 10,
+    flex: 1,
+    backgroundColor: 'green',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
   mainText: {
-    fontSize: 20,
-    fontWeight: 'normal',
-    color: 'red',
-    padding: 20,
-  },
+    // fontSize: 20,
+    // fontWeight: 'normal',
+    // color: 'red',
+    backgroundColor: 'white',
+    padding: 50,
+    zIndex: 999
+  }
 });
 
 export default App;

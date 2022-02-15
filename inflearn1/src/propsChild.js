@@ -7,16 +7,24 @@
  */
 
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 const PropsChild = (props) => {
   return (
     <View>
-      <Text onPress={props.cState}>
+      <Text style={styles.mainText} onPress={props.cState}>만지면 바뀜{'\n'}
         {props.cText}
       </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mainText: {
+    fontSize: 20,
+    backgroundColor: 'white',
+    padding: 50
+  }
+});
 
 export default PropsChild;
